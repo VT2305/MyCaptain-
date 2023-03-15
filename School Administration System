@@ -1,0 +1,69 @@
+class Student:
+    def __init__(self, name, grade, age):
+        self.name = name
+        self.grade = grade
+        self.age = age
+
+class School:
+    def __init__(self):
+        self.students = []
+
+    def add_student(self, name, grade, age):
+        student = Student(name, grade, age)
+        self.students.append(student)
+
+    def remove_student(self, name):
+        for student in self.students:
+            if student.name == name:
+                self.students.remove(student)
+                print(f"{name} has been removed from the school.")
+                return
+        print(f"{name} is not a student in this school.")
+
+    def find_student(self, name):
+        for student in self.students:
+            if student.name == name:
+                print(f"Name: {student.name}\nGrade: {student.grade}\nAge: {student.age}")
+                return
+        print(f"{name} is not a student in this school.")
+
+    def get_student_list(self):
+        if len(self.students) == 0:
+            print("There are no students in this school.")
+            return
+        for student in self.students:
+            print(f"Name: {student.name}\nGrade: {student.grade}\nAge: {student.age}\n")
+
+school = School()
+
+while True:
+    print("Enter 1 to add a student.")
+    print("Enter 2 to remove a student.")
+    print("Enter 3 to find a student.")
+    print("Enter 4 to get a list of all students.")
+    print("Enter 5 to exit.")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        name = input("Enter the student's name: ")
+        grade = input("Enter the student's grade: ")
+        age = input("Enter the student's age: ")
+        school.add_student(name, grade, age)
+
+    elif choice == 2:
+        name = input("Enter the name of the student you want to remove: ")
+        school.remove_student(name)
+
+    elif choice == 3:
+        name = input("Enter the name of the student you want to find: ")
+        school.find_student(name)
+
+    elif choice == 4:
+        school.get_student_list()
+
+    elif choice == 5:
+        break
+
+    else:
+        print("Invalid input. Please try again.")
