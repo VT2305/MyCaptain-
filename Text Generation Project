@@ -1,0 +1,17 @@
+import random
+
+# Define a list of phrases or sentences to generate text from
+phrases = [
+    "Hello, how are you?",
+    "What's your favorite color?",
+    "Tell me a joke.",
+    "I love programming!",
+    "The weather is nice today.",
+    "Do you have any pets?",
+]
+
+# Generate a random phrase from the list
+generated_text = random.choice(phrases)
+
+# Print the generated text
+print(generated_text)
